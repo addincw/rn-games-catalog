@@ -3,24 +3,15 @@ import React from "react";
 
 import Header from "../components/Header";
 
-import HomeScreen from "../screens/HomeScreen";
-import DetailScreen from "../screens/DetailScreen";
+import AboutScreen from "../screens/AboutScreen";
 
 const screens = {
-  HomeScreen: {
-    screen: HomeScreen,
+  AboutScreen: {
+    screen: AboutScreen,
     navigationOptions: ({ navigation }) => {
       return {
-        headerTitle: () => (
-          <Header navigation={navigation} title="GamesCatalog" />
-        ),
+        headerTitle: () => <Header navigation={navigation} title="About" />,
       };
-    },
-  },
-  DetailScreen: {
-    screen: DetailScreen,
-    navigationOptions: {
-      title: "detail",
     },
   },
 };
@@ -34,11 +25,10 @@ const options = {
   },
 };
 // list screens in stack, first stack will load default
-const GameStack = createStackNavigator(screens, options);
+const AboutStack = createStackNavigator(screens, options);
 
 /** jika merupakan root navigation (tidak ada stack lain / navigation lain)
  * render navigation match route/screen
  * jika ada, export default stack */
-//rendering match route/screen
-// export default createAppContainer(GameStack);
-export default GameStack;
+// export default createAppContainer(AboutStack);
+export default AboutStack;

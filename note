@@ -11,6 +11,9 @@ react navigation
     stack(untuk sub menu) 
         react-navigation-stack
         otomatis punya header dan actionnya
+        navigationOptions bisa dalam bentuk object / function, jika function
+        dapat kirim props navigation dan return harus berupa object
 
-    drawer(untuk menu yang levelnya sama) react-navigation-drawer
+    drawer(untuk menu yang levelnya sama) 
+        react-navigation-drawer
 - depedency react-native-gesture-handler react-native-reanimated

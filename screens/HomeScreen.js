@@ -5,18 +5,44 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  Button,
+  Modal,
 } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import appStyles from "../global/Styles";
+import FormScreen from "./FormScreen";
 
 function HomeScreen({ navigation }) {
+  const [modalOpen, setModalOpen] = useState(false);
   const [games, setGames] = useState([
     { key: "1", title: "Super Mario", rate: 5 },
     { key: "2", title: "Crash Bandicot", rate: 3 },
     { key: "3", title: "Jackie Chan", rate: 4 },
   ]);
+
+  const addGame = (game) => {
+    game.key = Math.random.toString();
+    setGames((currentGames) => {
+      return [game, ...currentGames];
+    });
+    setModalOpen(false);
+  };
+
   return (
-    <View style={appStyles.container}>
+    <View style={{ ...appStyles.container, paddingBottom: 15 }}>
+      <Modal visible={modalOpen} animationType="slide">
+        <View style={{ flex: 1 }}>
+          <MaterialIcons
+            style={styles.modalClose}
+            name="close"
+            size={24}
+            onPress={() => setModalOpen(false)}
+          />
+          <FormScreen addGame={addGame} />
+        </View>
+      </Modal>
+
       <FlatList
         data={games}
         renderItem={({ item }) => (
@@ -28,6 +54,8 @@ function HomeScreen({ navigation }) {
           </TouchableOpacity>
         )}
       />
+
+      <Button title="New Game" color="red" onPress={() => setModalOpen(true)} />
     </View>
   );
 }
@@ -39,6 +67,11 @@ const styles = StyleSheet.create({
     borderColor: "black",
     marginBottom: 15,
     padding: 15,
+  },
+  modalClose: {
+    position: "absolute",
+    top: 15,
+    right: 15,
   },
 });
 

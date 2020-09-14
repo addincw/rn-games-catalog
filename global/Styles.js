@@ -17,6 +17,20 @@ const styles = StyleSheet.create({
     fontFamily: "pixel-regular",
     fontSize: 10,
   },
+  textDanger: {
+    color: "crimson",
+  },
+  inputGroup: {
+    marginBottom: 15,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 6,
+    paddingTop: 10,
+    paddingBottom: 5,
+    paddingHorizontal: 15,
+  },
 });
 
 export default styles;

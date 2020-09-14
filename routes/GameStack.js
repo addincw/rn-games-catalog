@@ -19,8 +19,10 @@ const screens = {
   },
   DetailScreen: {
     screen: DetailScreen,
-    navigationOptions: {
-      title: "detail",
+    navigationOptions: ({ navigation }) => {
+      return {
+        title: navigation.getParam("title"),
+      };
     },
   },
 };

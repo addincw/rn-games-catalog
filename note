@@ -1,3 +1,5 @@
+source: React Native Tutorial for Beginner - the net ninja
+
 custom font
 - load module expo-font: import * as Font from 'expo-font'
 - on component mount: 
@@ -17,3 +19,14 @@ react navigation
     drawer(untuk menu yang levelnya sama) 
         react-navigation-drawer
 - depedency react-native-gesture-handler react-native-reanimated
+
+formik
+- npm install formik
+- untuk mempermudah interaksi dengan form input (handle event: handleChange, handleSubmit)
+- <formik> return props, jadi untuk menggunakannya gunakan jsx di antara tag formik
+
+yup
+- npm install yup
+- package yang bekerja dengan formik, untuk mevalidasi inputan
+- import * as yup from yup
+- definisikan schema (aturan) validasi yup.object({...field})
